@@ -1,0 +1,1 @@
+GRANT EXECUTE ON FUNCTION public.place_order(numeric, numeric, jsonb) TO anon;
