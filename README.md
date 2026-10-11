@@ -1,275 +1,107 @@
-# Cake Of The Day Collective
+# 🎂 Cake Of The Day — E-Commerce Platform
 
-You are a senior full-stack engineer and UI/UX designer.
+A production-ready, full-stack e-commerce solution engineered for an artisanal bakery. Built with **Next.js 15 (App Router)**, **TypeScript**, **Tailwind CSS**, **Supabase**, and **Stripe**, featuring dynamic custom cake ordering, real-time inventory management, responsive animations, and an executive administration dashboard.
 
-Build a COMPLETE production-ready cake business website with modern UI, strong security, mobile responsiveness, SEO optimization, and scalable architecture.
+[![Live Demo](https://img.shields.io/badge/Live_Demo-cakeoftheday.vercel.app-000000?style=for-the-badge&logo=vercel)](https://cakeoftheday.vercel.app/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Next.js 15](https://img.shields.io/badge/Next.js_15-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
+[![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com/)
+[![Stripe](https://img.shields.io/badge/Stripe-635BFF?style=for-the-badge&logo=stripe&logoColor=white)](https://stripe.com/)
 
-Tech Stack Requirements:
-- Next.js 15 (App Router)
-- TypeScript
-- Tailwind CSS
-- ShadCN UI
-- Framer Motion animations
-- Supabase (database, authentication, storage)
-- Stripe payment integration
-- Vercel deployment ready
-- Cloudflare-friendly
-- Responsive design for mobile/tablet/desktop
+---
 
-Project Goal:
-Create a premium modern cake shop website for a real business that customers can publicly access online to browse cakes, place orders, and contact the bakery.
+## 🌟 Key Features
 
-The website must look professional, luxurious, modern, clean, and conversion-focused.
+### 🛒 Customer E-Commerce Experience
+* **Interactive Cake Builder:** Dynamic pricing updates based on size, flavor selections, custom messages, and add-ons.
+* **Custom Order Request System:** Streamlined intake form supporting inspiration photo file streams directly to cloud storage.
+* **Persistent Shopping Cart:** Local-storage backed reactive shopping cart with real-time tax, delivery, and promo code calculations.
+* **Product Catalog & Search:** High-performance grid layout with instant filtering, category switching, and price/popularity sorting.
+* **Seamless Checkout:** Fully integrated Stripe Checkout with webhook handlers for asynchronous transaction verification.
 
-==================================================
-CORE WEBSITE FEATURES
-==================================================
+### 🛡️ Admin & Operational Architecture
+* **Role-Based Control Panel:** Protected admin routes utilizing Supabase Row-Level Security (RLS).
+* **Inventory & Order Management:** Real-time mutation of cake products, category tagging, and order status tracking.
+* **User Accounts:** Auth session management with order history tracking, saved delivery addresses, and user profiles.
 
-1. Home Page
-- Stunning hero section with premium cake visuals
-- Animated CTA buttons
-- Featured cakes section
-- Best sellers carousel
-- Testimonials
-- Why choose us section
-- Instagram gallery
-- Newsletter signup
-- Smooth scroll animations
-- Mobile optimized
+---
 
-2. Cake Shop Page
-- Grid layout of cakes
-- Category filters
-- Search functionality
-- Sort by price/popularity
-- Cake cards with:
-  - image
-  - name
-  - description
-  - price
-  - rating
-  - add to cart button
+## 🛠️ Tech Stack & Architecture
 
-3. Cake Detail Page
-- Multiple product images
-- Image zoom
-- Flavor options
-- Size selector
-- Quantity selector
-- Custom message input
-- Add-ons selection
-- Dynamic pricing
-- Add to cart
-- Related products
+* **Framework:** Next.js 15 (App Router)
+* **Language:** TypeScript (Strictly Typed)
+* **Styling & UI:** Tailwind CSS, ShadCN UI, Framer Motion
+* **Database & Auth:** Supabase PostgreSQL, Supabase Auth, Row-Level Security (RLS)
+* **Storage Bucket:** Supabase Storage (Cake Inspiration & Product Asset Stream)
+* **Payments:** Stripe API & Webhooks
+* **Deployment & Edge:** Vercel, Cloudflare CDN Compatible
 
-4. Custom Cake Order Page
-- Form for custom cake requests
-- Upload inspiration image
-- Event date picker
-- Cake size selection
-- Flavor selection
-- Notes textarea
-- Contact details
-- Form validation
-- Store data in Supabase
+---
 
-5. Shopping Cart
-- Update quantity
-- Remove items
-- Promo code support
-- Dynamic total calculation
-- Persistent cart using local storage
+## 📂 Project Structure
 
-6. Checkout System
-- Stripe payment integration
-- Shipping details
-- Order summary
-- Secure checkout flow
-- Success and cancel pages
+```text
+cakeoftheday/
+├── app/                  # Next.js App Router Pages & API Routes
+│   ├── (auth)/           # Login, Signup, Password Recovery
+│   ├── (shop)/           # Shop, Product Detail Pages, Custom Orders
+│   ├── admin/            # Role-Protected Management Dashboard
+│   └── api/              # Stripe Webhooks & Server Actions
+├── components/           # Reusable UI Components & Motion Controls
+│   ├── ui/               # ShadCN Primitives (Buttons, Dialogs, Cards)
+│   └── shop/             # Product Cards, Cart Drawer, Cake Customizer
+├── hooks/                # Custom React Hooks (useCart, useAuth)
+├── lib/                  # Utilities, Supabase Client, Stripe Integration
+├── types/                # Database & TypeScript Interface Definitions
+└── public/               # Static Brand Assets & Media
+🚀 Getting Started
+Prerequisites
+Node.js: v18.0.0 or higher
 
-7. Authentication
-- Supabase Auth
-- Sign up
-- Login
-- Forgot password
-- Protected admin routes
+npm or pnpm
 
-8. User Dashboard
-- Order history
-- Saved addresses
-- Profile management
+Supabase Account & Stripe Developer Account
 
-9. Admin Dashboard
-- Secure admin login
-- Manage products
-- Manage orders
-- Update order status
-- Upload cake images
-- Dashboard analytics cards
+1. Clone the Repository
+Bash
+git clone [https://github.com/TarangGupta6446/cakeofthedayy.git](https://github.com/TarangGupta6446/cakeofthedayy.git)
+cd cakeofthedayy
+2. Install Dependencies
+Bash
+npm install
+3. Configure Environment Variables
+Create a .env.local file in the project root:
 
-==================================================
-DESIGN REQUIREMENTS
-==================================================
+Code snippet
+# Supabase Configuration
+NEXT_PUBLIC_SUPABASE_URL=[https://your-supabase-project.supabase.co](https://your-supabase-project.supabase.co)
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+SUPABASE_SERVICE_ROLE_KEY=your-supabase-service-role-key
 
-Design Style:
-- Elegant bakery aesthetic
-- Soft pastel color palette
-- Luxury dessert branding
-- Rounded cards
-- Glassmorphism where appropriate
-- Beautiful typography
-- Smooth animations
-- High-end premium look
+# Stripe Payment Configuration
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_your_publishable_key
+STRIPE_SECRET_KEY=sk_test_your_secret_key
+STRIPE_WEBHOOK_SECRET=whsec_your_webhook_secret
 
-Use:
-- Poppins font
-- Playfair Display headings
-
-UI Requirements:
-- Fully responsive
-- Smooth page transitions
-- Loading skeletons
-- Hover effects
-- Accessible components
-- Dark mode support
-
-==================================================
-SECURITY REQUIREMENTS
-==================================================
-
-Implement:
-- Environment variable protection
-- Secure API routes
-- Input validation
-- Rate limiting
-- XSS protection
-- CSRF protection
-- SQL injection prevention
-- Secure authentication
-- Role-based admin access
-- HTTPS-ready deployment
-- Secure Stripe webhook handling
-
-Never expose:
-- API keys
-- secrets
-- database credentials
-
-==================================================
-SEO REQUIREMENTS
-==================================================
-
-Implement:
-- Metadata for every page
-- Open Graph tags
-- Twitter cards
-- Sitemap
-- Robots.txt
-- Schema markup for products
-- Fast loading optimization
-- Optimized images
-- Lazy loading
-
-==================================================
-PERFORMANCE REQUIREMENTS
-==================================================
-
-Optimize:
-- Lighthouse score
-- Image optimization
-- Code splitting
-- Server-side rendering
-- Static rendering where appropriate
-- Fast page loads
-- CDN-friendly assets
-
-==================================================
-DATABASE REQUIREMENTS
-==================================================
-
-Use Supabase PostgreSQL.
-
-Create schema for:
-- users
-- products
-- categories
-- orders
-- order_items
-- reviews
-- custom_orders
-- addresses
-
-Include:
-- relationships
-- indexes
-- secure policies
-- row level security
-
-==================================================
-PROJECT STRUCTURE
-==================================================
-
-Generate:
-- Clean scalable architecture
-- Reusable components
-- Modular codebase
-- Proper folder structure
-- Type-safe APIs
-- Custom hooks
-- Utility functions
-
-Use App Router structure:
-- app/
-- components/
-- lib/
-- hooks/
-- actions/
-- types/
-- public/
-
-==================================================
-DELIVERABLES
-==================================================
-
-Generate:
-1. Complete frontend
-2. Backend integration
-3. Supabase schema
-4. Stripe integration
-5. Authentication flow
-6. Admin dashboard
-7. Responsive layouts
-8. Deployment instructions
-9. Environment variables example
-10. README documentation
-
-==================================================
-IMPORTANT
-==================================================
-
-- Write production-quality code only
-- Use best practices
-- Keep code scalable and maintainable
-- Use modern UI/UX principles
-- Add comments where necessary
-- Avoid placeholder-quality design
-- Make the website feel like a premium real-world bakery brand
-
-Build everything step-by-step with complete code.
-
-the buisness name is Cake Of The Day its a small local buisness so not much traffic need u to make to website reactive here is the logo
-
-make the website modern with reactive components
-
-**Live app**: https://cakeofthedayy.lovable.app
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+# App URL
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+4. Run Development Server
+Bash
 npm run dev
-```
+Open http://localhost:3000 in your browser to view the application.
+
+📊 Database Schema (Supabase PostgreSQL)
+The backend utilizes PostgreSQL with Row-Level Security policies covering:
+
+users — Extends Supabase auth.users with profile roles.
+
+products — Cake inventory, pricing tiers, and assets.
+
+categories — Product taxonomies.
+
+orders & order_items — Relational transaction logs with Stripe payment IDs.
+
+custom_orders — Bespoke order specifications and upload URLs.
+
+📜 License
+Distributed under the MIT License. See LICENSE for more information.
